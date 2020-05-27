@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      FRONTEND_PORT: 3000
+      NODE_ENV: development
+    ports:
+      - 3001:3000
+    volumes:
+      - ./api:/app
+      - ./api/node_modules
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - api
+    environment:
+      API_PORT: 3001
+      CHOKIDAR_USEPOLLING: "1"
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+      - ./frontend/node_modules
+    stdin_open: true
