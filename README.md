@@ -11,6 +11,6 @@ NestJS api and React frontend are inside Docker containers. There is a `docker-c
 
 ### Using
 
-Proceed to this url in a browser
+Proceed to this url
 
 `http://localhost:3000`

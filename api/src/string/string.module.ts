@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
-import { StringController } from './string.controller';
-import { StringService } from './string.service';
+import { StringGateway } from './string.gateway';
 
 @Module({
-  controllers: [StringController],
-  providers: [StringService],
+  providers: [StringGateway],
 })
 export class StringModule {}
